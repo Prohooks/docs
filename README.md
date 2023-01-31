@@ -12,13 +12,13 @@ description: >-
 
 {% hint style="info" %}
 
-API Link: https://prohooks.xyz
+API Link: https://api.prohooks.xyz/
 
 {% endhint %}
 
 ### API Methods
 
-{% swagger method="put" path="/new" baseUrl="" summary="Create" %}
+{% swagger method="put" path="/" baseUrl="" summary="Create" %}
 
 {% swagger-description %}
 
