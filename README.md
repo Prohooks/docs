@@ -8,7 +8,7 @@ description: >-
 
 ---
 
-# Timer API
+# Webhooks Scheduler API
 
 {% hint style="info" %}
 
@@ -18,15 +18,15 @@ API Link: https://api.prohooks.xyz/
 
 ### API Methods
 
-{% swagger method="put" path="/" baseUrl="" summary="Create" %}
+{% swagger method="post" path="/timers/new" baseUrl="" summary="Create" %}
 
 {% swagger-description %}
 
-Create a new schedule
+Schedule a new Webhook
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="token" required="true" %}
+{% swagger-parameter in="headers" name="api-key" required="true" %}
 
 API token
 
@@ -132,7 +132,7 @@ Timer ID
 
 {% endswagger %}
 
-{% swagger method="post" path="/cancel" baseUrl="" summary="Cancel" %}
+{% swagger method="delete" path="/timers/:timer_id" baseUrl="" summary="Cancel" %}
 
 {% swagger-description %}
 
@@ -140,15 +140,9 @@ Cancel a timer
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="key" required="true" %}
+{% swagger-parameter in="headers" name="api-key" required="true" %}
 
-API key
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="id" required="true" %}
-
-ID of the timer to cancel
+API token
 
 {% endswagger-parameter %}
 
