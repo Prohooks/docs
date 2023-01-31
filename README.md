@@ -76,7 +76,7 @@ Data to send in the webhook request
 
 {% endswagger %}
 
-{% swagger method="post" path="/status" baseUrl="" summary="Status" %}
+{% swagger method="get" path="/timers/:timer_id" baseUrl="" summary="Status" %}
 
 {% swagger-description %}
 
@@ -84,17 +84,12 @@ Get the status of a timer
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="key" required="true" %}
+{% swagger-parameter in="headers" name="api-key" required="true" %}
 
-API key
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" required="true" name="id" %}
-
-Timer ID
+API token
 
 {% endswagger-parameter %}
+
 
 {% swagger-response status="200: OK" description="" %}
 
