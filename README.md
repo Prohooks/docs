@@ -26,7 +26,7 @@ Schedule a new Webhook
 
 {% endswagger-description %}
 
-{% swagger-parameter in="headers" name="api-key" required="true" %}
+{% swagger-parameter in="header" name="api-key" required="true" %}
 
 API token
 
@@ -84,7 +84,7 @@ Get the status of a timer
 
 {% endswagger-description %}
 
-{% swagger-parameter in="headers" name="api-key" required="true" %}
+{% swagger-parameter in="header" name="api-key" required="true" %}
 
 API token
 
@@ -135,7 +135,7 @@ Cancel a timer
 
 {% endswagger-description %}
 
-{% swagger-parameter in="headers" name="api-key" required="true" %}
+{% swagger-parameter in="header" name="api-key" required="true" %}
 
 API token
 
