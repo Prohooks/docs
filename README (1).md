@@ -1,5 +1,7 @@
 ---
-description: Welcome to the Prohooks Timers API
+description: >-
+  Welcome to the Prohooks Timers API. The Timers API allows you to schedule
+  webhooks with custom request headers and params
 ---
 
 # Timers
@@ -88,35 +90,23 @@ Whether to send the Timer Object under the
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Missing or Invalid Fields" %}
-Required fields were not provided or invalid. Please see above for more information
+
 {% endswagger-response %}
 
 {% swagger-response status="401: Unauthorized" description="Missing API Token" %}
-No API Token was provided in the 
 
-`authorization`
-
- header
 {% endswagger-response %}
 
 {% swagger-response status="402: Payment Required" description="No Requests" %}
-```javascript
-{
-    // Response
-}
-```
+
 {% endswagger-response %}
 
 {% swagger-response status="403: Forbidden" description="Invalid Token" %}
-The API Token in the 
 
-`authorization`
-
- header was not valid
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="Request Failed" %}
-An unkown error occurred. Please report the response Error Object to a staff member so we can fix it!
+
 {% endswagger-response %}
 {% endswagger %}
 
@@ -153,31 +143,78 @@ ID of the Timer to fetch
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Missing or Invalid Fields" %}
-Required fields were not provided or invalid. Please see above for more information
+
 {% endswagger-response %}
 
 {% swagger-response status="401: Unauthorized" description="Missing API Token" %}
-No API Token was provided in the 
 
-`authorization`
-
- header
 {% endswagger-response %}
 
 {% swagger-response status="403: Forbidden" description="Invalid API Token" %}
-The API Token in the 
 
-`authorization`
-
- header was not valid
 {% endswagger-response %}
 
 {% swagger-response status="404: Not Found" description="Unknown or Invalid Timer ID" %}
-The provided Timer ID was not valid or does not belong to the current user
+
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="Request Failed" %}
-An unkown error occurred. Please report the response Error Object to a staff member so we can fix it!
+
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="get" path="/" baseUrl="https://api.proohoks.xyz/timers" summary="List all Timers" %}
+{% swagger-description %}
+List all the current user's active Timers
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="authorization" type="String" required="true" %}
+API Token
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Timers fetched" %}
+```javascript
+[
+    {
+        id: "1oA78CDeeF",
+        user: "prohooks_admin",
+        url: "https://google.com",
+        method: "POST",
+        payload: {
+            "awesome": true,
+        },
+        headers: {
+            "Content-Type":  "application/json"
+        },
+        duration: 60,
+        include_details: true
+    }
+]
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Missing API Token" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Invalid API Token" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Request Failed" %}
+```javascript
+{
+    // Response
+}
+```
 {% endswagger-response %}
 {% endswagger %}
 
@@ -226,6 +263,6 @@ ID of the Timer to fetch
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="Request Failed" %}
-An unkown error occurred. Please report the response Error Object to a staff member so we can fix it!
+
 {% endswagger-response %}
 {% endswagger %}
