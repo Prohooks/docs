@@ -4,5 +4,5 @@
 
 ## Prohooks API <a href="#api" id="api"></a>
 
-* [Timers](api/readme.md)
 * [General](api/general.md)
+* [Timers](<README (1).md>)

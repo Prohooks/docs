@@ -164,7 +164,7 @@ No API Token was provided in the
  header
 {% endswagger-response %}
 
-{% swagger-response status="403: Forbidden" description="Invalid Token" %}
+{% swagger-response status="403: Forbidden" description="Invalid API Token" %}
 The API Token in the 
 
 `authorization`
@@ -181,7 +181,7 @@ An unkown error occurred. Please report the response Error Object to a staff mem
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="delete" path="/" baseUrl="https://api.proohoks.xyz/timers" summary="Delete a Timer" %}
+{% swagger method="delete" path="/:timer_id" baseUrl="https://api.proohoks.xyz/timers" summary="Delete a Timer" %}
 {% swagger-description %}
 Cancel a timer
 {% endswagger-description %}
@@ -190,17 +190,62 @@ Cancel a timer
 API token
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-parameter in="path" required="true" name="timer_id" %}
+ID of the Timer to fetch
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Timer Deleted" %}
 ```javascript
-
 {
-
-    error: false,
-
-    message: "cancelled"
-
+    id: "1oA78CDeeF",
+    user: "prohooks_admin",
+    url: "https://google.com",
+    method: "POST",
+    payload: {
+        "awesome": true,
+    },
+    headers: {
+        "Content-Type":  "application/json"
+    },
+    duration: 60,
+    include_details: true
 }
-
 ```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Missing or Invalid Fields" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Missing API Token" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Invalid API Token" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Unknown or Invalid Timer ID" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Request Failed" %}
+An unkown error occurred. Please report the response Error Object to a staff member so we can fix it!
 {% endswagger-response %}
 {% endswagger %}
