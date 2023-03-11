@@ -214,35 +214,15 @@ ID of the Timer to fetch
 {% endswagger-response %}
 
 {% swagger-response status="400: Bad Request" description="Missing or Invalid Fields" %}
-```javascript
-{
-    // Response
-}
-```
+
 {% endswagger-response %}
 
 {% swagger-response status="401: Unauthorized" description="Missing API Token" %}
-```javascript
-{
-    // Response
-}
-```
+
 {% endswagger-response %}
 
 {% swagger-response status="403: Forbidden" description="Invalid API Token" %}
-```javascript
-{
-    // Response
-}
-```
-{% endswagger-response %}
 
-{% swagger-response status="404: Not Found" description="Unknown or Invalid Timer ID" %}
-```javascript
-{
-    // Response
-}
-```
 {% endswagger-response %}
 
 {% swagger-response status="500: Internal Server Error" description="Request Failed" %}
