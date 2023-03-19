@@ -45,7 +45,7 @@ Webhook Request method. One of:\
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="duration" required="true" type="String" %}
-Timer duration
+Timer duration (milliseconds)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="payload" type="Any" required="false" %}
